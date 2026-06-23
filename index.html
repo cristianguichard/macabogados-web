@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="icon/logo_mac.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -37,13 +37,51 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
-      <div class="hero__overlay"></div>
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+
+      <div class="hero__seal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" class="hero__seal-svg">
+          <defs>
+            <path id="seal-curve-top" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0" fill="none"/>
+            <path id="seal-curve-bottom" d="M 100,100 m -75,0 a 75,75 0 1,0 150,0" fill="none"/>
+          </defs>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <text class="hero__seal-text">
+            <textPath href="#seal-curve-top" startOffset="50%" text-anchor="middle">MAC · ABOGADOS · SANTIAGO</textPath>
+          </text>
+          <text class="hero__seal-text">
+            <textPath href="#seal-curve-bottom" startOffset="50%" text-anchor="middle">MMXXVI</textPath>
+          </text>
+          <g transform="translate(100,100)" class="hero__seal-icon">
+            <path d="M -10,-15 L 0,-22 L 10,-15 L 10,15 L -10,15 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="-15" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="0" cy="-8" r="2" fill="currentColor"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero__rule hero__rule--top" aria-hidden="true"></div>
+
       <div class="hero__content">
+        <p class="hero__eyebrow" data-reveal>— Estudio Jurídico · 2026 —</p>
         <h1 class="hero__title">
-          <span>Una Solución</span>
-          <span class="hero__title--accent">eficaz|</span>
+          <span class="hero__line"><span class="hero__line-inner">Macabogados</span></span>
         </h1>
-        <a href="#areas" class="btn btn--primary btn--lg">Saber Más</a>
+        <p class="hero__sub" data-reveal>Acompañamiento <em>cercano</em>, defensa <em>firme</em>.<br/>Derecho civil, penal, laboral y familia.</p>
+        <div class="hero__cta" data-reveal>
+          <a href="#areas" class="btn btn--primary btn--lg">Saber más</a>
+          <a href="#contacto" class="btn btn--ghost btn--lg">Agendar consulta</a>
+        </div>
+      </div>
+
+      <div class="hero__rule hero__rule--bottom" aria-hidden="true"></div>
+
+      <div class="hero__meta" aria-hidden="true">
+        <span>Santiago</span>
+        <span class="hero__meta-dot"></span>
+        <span>Chile</span>
       </div>
     </section>
 
@@ -143,7 +181,7 @@
           </details>
           <details class="accordion">
             <summary>¿Las consultas son sólo presenciales?</summary>
-            <p>No. Realizamos consultas presenciales en nuestra oficina de Ahumada 312 OF 411, Santiago, y también de forma remota vía videollamada para clientes que se encuentren fuera de la Región Metropolitana.</p>
+            <p>No. Realizamos consultas presenciales en Santiago y también de forma remota vía videollamada para clientes que se encuentren fuera de la Región Metropolitana.</p>
           </details>
           <details class="accordion">
             <summary>¿Cuánto dura una consulta?</summary>
@@ -187,37 +225,30 @@
 
         <ul class="carousel__track">
           <li class="testimonial">
-            <img src="avatars/avatar-TW_z_iUD_bQ.jpg" alt="Pedro" class="testimonial__avatar" />
             <h3 class="testimonial__name">Caro</h3>
             <p class="testimonial__quote">Excelente trabajo, mucho profesionalismo. Me ayudaron cuando más lo necesité y me guiaron muy bien, siempre me apoyaron emocionalmente y profesionalmente. Un gran saludo.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-WNoLnJo7tS8.jpg" alt="Caro" class="testimonial__avatar" />
             <h3 class="testimonial__name">Cristian Guichard</h3>
             <p class="testimonial__quote">En Mac Abogados nos asesoran constantemente en temas laborales y derechos de autor.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-XHVpWcr5grQ.jpg" alt="Juan" class="testimonial__avatar" />
             <h3 class="testimonial__name">Ariel Rivas</h3>
             <p class="testimonial__quote">Excelente gestión. Mi caso se trató de un Arrendatario Moroso durante bastante tiempo y los abogados lograron sacar dichos arrendatarios en dos meses desde que iniciaron su gestión.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-ZHvM3XIOHoE.jpg" alt="Pedro" class="testimonial__avatar" />
             <h3 class="testimonial__name">Caro</h3>
             <p class="testimonial__quote">Excelente trabajo, mucho profesionalismo. Me ayudaron cuando más lo necesité y me guiaron muy bien, siempre me apoyaron emocionalmente y profesionalmente. Un gran saludo.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-n4KewLKFOZw.jpg" alt="Caro" class="testimonial__avatar" />
             <h3 class="testimonial__name">Cristian Guichard</h3>
             <p class="testimonial__quote">En Mac Abogados nos asesoran constantemente en temas laborales y derechos de autor.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-WNoLnJo7tS8.jpg" alt="Juan" class="testimonial__avatar" />
             <h3 class="testimonial__name">Ariel Rivas</h3>
             <p class="testimonial__quote">Excelente gestión. Mi caso se trató de un Arrendatario Moroso durante bastante tiempo y los abogados lograron sacar dichos arrendatarios en dos meses desde que iniciaron su gestión.</p>
           </li>
           <li class="testimonial">
-            <img src="avatars/avatar-TW_z_iUD_bQ.jpg" alt="Pedro" class="testimonial__avatar" />
             <h3 class="testimonial__name">Caro</h3>
             <p class="testimonial__quote">Excelente trabajo, mucho profesionalismo. Me ayudaron cuando más lo necesité y me guiaron muy bien, siempre me apoyaron emocionalmente y profesionalmente. Un gran saludo.</p>
           </li>
@@ -233,8 +264,11 @@
     <section class="section section--contact" id="contacto">
       <div class="contact__grid">
 
-        <form class="contact__form" id="contactForm" action="mailto:mac@macabogados.cl" method="post" enctype="text/plain">
+        <form class="contact__form" id="contactForm" action="https://formspree.io/f/xqagvnjz" method="POST">
           <h2 class="section__title section__title--left">Contáctanos</h2>
+
+          <input type="hidden" name="_subject" value="Consulta abogado - macabogados.cl" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
           <label class="field">
             <span class="field__label">Nombre</span>
@@ -257,13 +291,15 @@
           </label>
 
           <button type="submit" class="btn btn--primary">Enviar</button>
+
+          <p class="contact__feedback" id="contactFeedback" hidden></p>
         </form>
 
         <aside class="contact__info">
-          <h3 class="contact__heading">Dónde nos reunimos</h3>
-          <p class="contact__address">Ahumada 312 OF 411<br />Santiago, Chile.</p>
+          <h3 class="contact__heading">Cómo contactarnos</h3>
+          <p class="contact__address">Atendemos en Santiago.<br/>Coordinamos ubicación al agendar.</p>
 
-          <h3 class="contact__heading">Di hola</h3>
+          <h3 class="contact__heading">Escríbenos</h3>
           <ul class="contact__list">
             <li>
               <a href="mailto:mac@macabogados.cl" class="contact__link">
@@ -310,5 +346,17 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ========== BOTÓN FLOTANTE WHATSAPP ========== -->
+  <a href="https://wa.me/56973767165?text=Hola%20Karime%2C%20me%20interesa%20saber%20m%C3%A1s"
+     target="_blank"
+     rel="noopener"
+     class="whatsapp-float"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
 </body>
 </html>

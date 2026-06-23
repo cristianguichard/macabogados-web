@@ -6,3 +6,7 @@ node_modules/
 .env
 .env.local
 .playwright-mcp/
+
+# Documentos privados de clientes (no se versionan)
+docs/*.docx
+docs/*.doc

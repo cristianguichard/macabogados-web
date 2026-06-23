@@ -6,6 +6,12 @@
 (function () {
   'use strict';
 
+  /* ---------- Hero: trigger reveals escalonados ---------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.hero [data-reveal]');
+    reveals.forEach(el => el.classList.add('is-revealed'));
+  });
+
   /* ---------- Nav móvil ---------- */
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
@@ -53,11 +59,44 @@
 
   /* ---------- Form: feedback antes de mailto ---------- */
   const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('contactFeedback');
   if (form) {
-    form.addEventListener('submit', (e) => {
-      // Validación nativa HTML5 ya cubre required + type=email.
-      // mailto: con enctype=text/plain arma el body automáticamente.
-      // Nada más que hacer acá; dejamos que el form proceda.
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          if (feedback) {
+            feedback.hidden = false;
+            feedback.textContent = '¡Gracias! Te responderemos a la brevedad.';
+            feedback.className = 'contact__feedback contact__feedback--ok';
+          }
+        } else {
+          throw new Error('Network');
+        }
+      } catch (err) {
+        if (feedback) {
+          feedback.hidden = false;
+          feedback.textContent = 'Hubo un error. Intenta de nuevo o escríbenos directo a mac@macabogados.cl';
+          feedback.className = 'contact__feedback contact__feedback--err';
+        }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
     });
   }
 

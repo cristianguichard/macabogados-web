@@ -105,6 +105,33 @@ objetivo, que la persona escriba a Karime.
 - El número, el texto precargado y los datos de la tarjeta se editan en
   `karime.html` (buscar `wa.me`).
 
+## Medición (GA4)
+
+El sitio usa **Google Analytics 4** con el ID `G-81PFMCP4B4`.
+
+- **Tag base:** en el `<head>` de `index.html`, `cae.html` y `karime.html`.
+- **Eventos propios:** `analytics.js`, cargado al final de esas tres páginas.
+
+| Evento | Cuándo | Parámetros |
+|--------|--------|------------|
+| `page_view` | automático de GA4 | `page_location` |
+| `whatsapp_click` | clic en cualquier enlace `wa.me` | `page_name`, `placement`, `link_text` |
+| `tel_click` | clic en `tel:` | `page_name`, `placement`, `link_text` |
+| `email_click` | clic en `mailto:` | `page_name`, `placement`, `link_text` |
+| `contacto_enviado` | envío válido del formulario (home y CAE) | `page_name` |
+
+`page_name` sale de `<body data-page="home|cae|karime">`. El `placement` sale del
+atributo `data-track` de cada enlace (`float`, `contacto`, `footer`, `landing-cta`,
+`landing-tel`, `landing-email`). Para sumar una variante nueva alcanza con agregar
+`data-track="mi-etiqueta"` al enlace.
+
+Sin datos personales: `analytics.js` nunca lee los campos del formulario. Si un
+adblocker impide cargar `gtag`, el script se desactiva sin romper nada.
+
+**Para ver el embudo en GA4:** Registrar los eventos como *key events*
+(Admin → Key events) para `whatsapp_click` y `contacto_enviado`, y usar
+*Realtime* para verificar que llegan.
+
 ## Accesibilidad
 
 - El hero se muestra completo sin JavaScript (`html:not(.js)` en `styles.css`).

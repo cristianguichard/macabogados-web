@@ -39,8 +39,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-81PFMCP4B4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-81PFMCP4B4');
+  </script>
+  <!-- End Google Analytics 4 -->
 </head>
-<body>
+<body data-page="karime">
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
@@ -94,6 +103,7 @@
           <div class="landing__cta-row">
             <a id="whatsappCta"
                class="btn--wa"
+               data-track="landing-cta"
                href="https://wa.me/56973767165?text=Hola%20Karime%2C%20vengo%20desde%20macabogados.cl%20y%20necesito%20asesor%C3%ADa%20sobre%20mi%20caso."
                target="_blank"
                rel="noopener"
@@ -103,11 +113,11 @@
               </svg>
               <span>Escribir por WhatsApp</span>
             </a>
-            <a class="btn btn--ghost" href="tel:+56973767165">Llamar ahora</a>
+            <a class="btn btn--ghost" href="tel:+56973767165" data-track="landing-tel">Llamar ahora</a>
           </div>
 
           <p class="landing__alt">
-            ¿Prefieres correo? <a href="mailto:mac@macabogados.cl">mac@macabogados.cl</a>
+            ¿Prefieres correo? <a href="mailto:mac@macabogados.cl" data-track="landing-email">mac@macabogados.cl</a>
           </p>
 
           <p class="landing__muted">
@@ -143,6 +153,8 @@
       <p class="footer__copy">© 315 Web — Derechos reservados 2026</p>
     </div>
   </footer>
+
+  <script src="analytics.js"></script>
 
 </body>
 </html>

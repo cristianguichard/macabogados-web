@@ -64,6 +64,10 @@ verse. Por eso los HTML cargan:
 HTML** (`index.html`, `cae.html`, `karime.html`, `404.html`). El HTML revalida
 siempre, así que el visitante baja la versión nueva de inmediato.
 
+> Nota: se probó también un archivo `_headers` de Cloudflare Pages para forzar
+> `max-age=0`, pero este proyecto no lo está aplicando; por eso el versionado va
+> en la URL.
+
 ## Tipografía
 
 Se cargan desde Google Fonts (no hay carpeta `fonts/` local):

@@ -48,6 +48,22 @@ limpias **no** existen: hay que abrir `karime.html` en vez de `karime`.
 | Comportamiento nav/FAQ/carousel | `script.js` |
 | Tarjetas para redes (1200×630) | `imagenes/og-home.png`, `imagenes/og-cae.png`, `imagenes/og-karime.png` |
 
+## Cache de assets (importante al editar CSS/JS)
+
+Cloudflare sirve los assets con `max-age=14400` (4 horas) y el proyecto no usa
+build con hash en los nombres, así que un cambio de `styles.css` puede tardar en
+verse. Por eso los HTML cargan:
+
+```html
+<link rel="stylesheet" href="styles.css?v=20261119b" />
+<script src="script.js?v=20261119b"></script>
+<script src="analytics.js?v=20261119b"></script>
+```
+
+**Al tocar `styles.css`, `script.js` o `analytics.js`, subí el `?v=` en los cuatro
+HTML** (`index.html`, `cae.html`, `karime.html`, `404.html`). El HTML revalida
+siempre, así que el visitante baja la versión nueva de inmediato.
+
 ## Tipografía
 
 Se cargan desde Google Fonts (no hay carpeta `fonts/` local):

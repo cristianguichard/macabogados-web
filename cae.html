@@ -6,17 +6,22 @@
   <meta name="description" content="Embargos bancarios del Crédito con Aval del Estado (CAE). Herramientas legales: devolución en TGR, Recurso de Protección, Orden de No Innovar. Asesoría en Macabogados." />
   <meta name="theme-color" content="#7d343f" />
 
+  <!-- Marca el documento como "con JS" antes de pintar: el hero anima via .js -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="canonical" href="https://macabogados.cl/cae" />
+
   <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://macabogados.cl/cae.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://macabogados.cl/cae" />
   <meta property="og:title" content="CAE · Embargos bancarios — Macabogados" />
   <meta property="og:description" content="¿Te embargaron la cuenta por el CAE? Conoce las herramientas legales para defenderte: devolución en TGR, Recurso de Protección y Orden de No Innovar." />
-  <meta property="og:image" content="https://macabogados.cl/imagenes/cae.png" />
-  <meta property="og:image:url" content="https://macabogados.cl/imagenes/cae.png" />
-  <meta property="og:image:secure_url" content="https://macabogados.cl/imagenes/cae.png" />
+  <meta property="og:image" content="https://macabogados.cl/imagenes/og-cae.png" />
+  <meta property="og:image:url" content="https://macabogados.cl/imagenes/og-cae.png" />
+  <meta property="og:image:secure_url" content="https://macabogados.cl/imagenes/og-cae.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="931" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Guía legal sobre embargos bancarios del CAE (Crédito con Aval del Estado)" />
   <meta property="og:locale" content="es_CL" />
   <meta property="og:site_name" content="Macabogados" />
@@ -25,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CAE · Embargos bancarios — Macabogados" />
   <meta name="twitter:description" content="¿Te embargaron la cuenta por el CAE? Conoce las herramientas legales para defenderte: devolución en TGR, Recurso de Protección y Orden de No Innovar." />
-  <meta name="twitter:image" content="https://macabogados.cl/imagenes/cae.png" />
+  <meta name="twitter:image" content="https://macabogados.cl/imagenes/og-cae.png" />
   <meta name="twitter:image:alt" content="Guía legal sobre embargos bancarios del CAE (Crédito con Aval del Estado)" />
 
   <title>CAE · Embargos bancarios — Macabogados</title>
@@ -39,24 +44,27 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
   <!-- ========== NAV ========== -->
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__brand" aria-label="Mac Abogados inicio">
-        <img src="icon/logo_mac.png" alt="Mac Abogados" class="nav__logo" />
+        <img src="icon/logo_mac.png" alt="Mac Abogados" class="nav__logo" width="429" height="164" />
       </a>
-      <nav class="nav__menu" aria-label="Navegación principal">
+      <nav class="nav__menu" id="navMenu" aria-label="Navegación principal">
         <a href="index.html" class="nav__link">Inicio</a>
         <a href="index.html#areas" class="nav__link">Áreas</a>
+        <a href="cae.html" class="nav__link" aria-current="page">CAE</a>
         <a href="index.html#contacto" class="nav__link">Contacto</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <button type="button" class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ========== HERO CAE ========== -->
     <section class="hero hero--subpage">
@@ -70,12 +78,11 @@
           <span class="hero__line hero__line--accent"><span class="hero__line-inner hero__line-inner--accent">Embargos bancarios</span></span>
         </h1>
         <p class="hero__sub">Herramientas legales para defenderte: devolución en TGR, Recurso de Protección y Orden de No Innovar.</p>
-        <img src="imagenes/cae.png" alt="Guía visual sobre embargos CAE" class="hero__image" />
       </div>
     </section>
 
     <!-- ========== AVISO LEGAL ========== -->
-    <aside class="notice">
+    <aside class="notice" aria-label="Aviso legal">
       <div class="notice__inner">
         <span class="material-symbols-outlined">info</span>
         <p>Esta información es orientativa y <strong>no constituye asesoría legal personalizada</strong>. Cada caso tiene particularidades. Te recomendamos consultar con un abogado antes de iniciar cualquier acción.</p>
@@ -187,7 +194,7 @@
           <p class="contact__feedback" id="contactFeedback" hidden></p>
         </form>
 
-        <aside class="contact__info">
+        <div class="contact__info">
           <h3 class="contact__heading">O escríbenos directo</h3>
           <ul class="contact__list">
             <li>
@@ -204,7 +211,7 @@
             </li>
           </ul>
           <p class="contact__address">Atendemos en Santiago.<br/>Coordinamos ubicación al agendar.</p>
-        </aside>
+        </div>
       </div>
     </section>
 
@@ -213,23 +220,44 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__col">
-        <h4 class="footer__heading">Macabogados</h4>
-        <ul class="footer__list">
-          <li><a href="index.html" class="footer__link">← Volver al inicio</a></li>
-          <li>
-            <a href="mailto:mac@macabogados.cl" class="footer__link">
-              <span class="material-symbols-outlined">email</span>
-              mac@macabogados.cl
-            </a>
-          </li>
-          <li>
-            <a href="https://wa.me/56973767165" class="footer__link" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined">phone_iphone</span>
-              +56 9 7376 7165
-            </a>
-          </li>
-        </ul>
+      <div class="footer__cols">
+
+        <div class="footer__col">
+          <h4 class="footer__heading">Secciones</h4>
+          <ul class="footer__list">
+            <li><a href="index.html#areas" class="footer__link">Áreas de práctica</a></li>
+            <li><a href="index.html#nosotras" class="footer__link">Sobre nosotras</a></li>
+            <li><a href="index.html#faq" class="footer__link">Preguntas frecuentes</a></li>
+            <li><a href="index.html#contacto" class="footer__link">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__heading">Enlaces</h4>
+          <ul class="footer__list">
+            <li><a href="cae.html" class="footer__link">CAE · Embargos bancarios</a></li>
+            <li><a href="karime.html" class="footer__link">Hablar con Karime por WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__heading">Contacto</h4>
+          <ul class="footer__list">
+            <li>
+              <a href="mailto:mac@macabogados.cl" class="footer__link">
+                <span class="material-symbols-outlined">email</span>
+                mac@macabogados.cl
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/56973767165" class="footer__link" target="_blank" rel="noopener">
+                <span class="material-symbols-outlined">phone_iphone</span>
+                +56 9 7376 7165
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
       <p class="footer__copy">© 315 Web — Derechos reservados 2026</p>
     </div>
@@ -238,6 +266,7 @@
   <script src="script.js"></script>
 
   <!-- ========== BOTÓN FLOTANTE WHATSAPP ========== -->
+  <aside class="whatsapp-dock" aria-label="Contacto rápido por WhatsApp">
   <a href="https://wa.me/56973767165?text=Hola%20Karime%2C%20me%20interesa%20asesor%C3%ADa%20sobre%20embargo%20CAE"
      target="_blank"
      rel="noopener"
@@ -247,6 +276,7 @@
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
+  </aside>
 
 </body>
 </html>

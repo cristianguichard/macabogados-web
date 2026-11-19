@@ -1,6 +1,8 @@
 /* ==================================================
    macabogados.cl — script.js
    Mínimo: nav toggle, FAQ categorías, carousel.
+   Nada de esto es imprescindible: sin JS el hero se ve
+   (clase .js + fallback en styles.css) y el <details> nativo.
    ================================================== */
 
 (function () {
@@ -16,29 +18,66 @@
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
   if (nav && navToggle) {
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
+    const setOpen = (open) => {
+      nav.classList.toggle('is-open', open);
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
+
+    navToggle.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('is-open'));
     });
+
     // Cerrar menú al click en link
     nav.querySelectorAll('.nav__link').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Abrir menú');
-      });
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    // Cerrar con Escape y devolver el foco al botón
+    nav.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        setOpen(false);
+        navToggle.focus();
+      }
+    });
+
+    // Cerrar al hacer click fuera del header
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('is-open') && !nav.contains(e.target)) {
+        setOpen(false);
+      }
     });
   }
 
-  /* ---------- FAQ categorías ---------- */
+  /* ---------- FAQ categorías (tabs) ---------- */
   const cats = document.querySelectorAll('.faq__cat');
   const panels = document.querySelectorAll('.faq__panel');
-  cats.forEach(cat => {
-    cat.addEventListener('click', () => {
-      const target = cat.dataset.cat;
-      cats.forEach(c => c.classList.toggle('is-active', c === cat));
-      panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === target));
+  const activateCat = (cat, moveFocus) => {
+    const target = cat.dataset.cat;
+    cats.forEach(c => {
+      const on = c === cat;
+      c.classList.toggle('is-active', on);
+      c.setAttribute('aria-selected', on ? 'true' : 'false');
+      c.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(p => {
+      const on = p.dataset.panel === target;
+      p.classList.toggle('is-active', on);
+      p.hidden = !on;
+    });
+    if (moveFocus) cat.focus();
+  };
+
+  cats.forEach((cat, i) => {
+    cat.addEventListener('click', () => activateCat(cat, false));
+
+    // Navegación con flechas entre tabs (patrón ARIA de tabs)
+    cat.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const next = cats[(i + step + cats.length) % cats.length];
+      activateCat(next, true);
     });
   });
 
@@ -55,6 +94,19 @@
     };
     prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
     next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+
+    // El carril es una región con scroll: accesible por teclado
+    track.addEventListener('keydown', (e) => {
+      const map = {
+        ArrowRight: step(),
+        ArrowLeft: -step(),
+        Home: -track.scrollWidth,
+        End: track.scrollWidth
+      };
+      if (!(e.key in map)) return;
+      e.preventDefault();
+      track.scrollBy({ left: map[e.key], behavior: 'smooth' });
+    });
   }
 
   /* ---------- Form: feedback antes de mailto ---------- */
